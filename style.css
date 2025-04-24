@@ -1,0 +1,326 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1c1c1c);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+#bgCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+
+}
+.playerCard {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+    border: 1px solid rgba(255,255,255,0.18);
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+nav {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+nav ul {
+    display: flex;
+    background-color: black;
+    color: white;
+    align-items: center;
+    list-style-type: none;
+    height: 65px;
+}
+
+nav ul li {
+    padding: 0 12px;
+}
+
+.brand img {
+    width: 60px;
+    padding: 0 6px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.container {
+    background-color: black;
+    min-height: 68vh;
+    font-family: 'Times New Roman', Times, serif;
+    color: gray;
+    display: flex;
+    margin: 23px auto;
+    width: 70%;
+    padding: 34px;
+    border-radius: 12px;
+    background-image: url(head.jpg);
+}
+
+.brand {
+    transition: all 0.3sec ease;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.brand:hover {
+    transform: scale(1.05) rotateY(10deg);
+}
+
+.brand img {
+    transition: all 0.3s ease;
+}
+
+.brand:hover img {
+    transform: translateZ(20px) rotateY(-15deg);
+    filter: drop-shadow(0 0 10px rgba(29, 185, 84, 0.5));
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    position: sticky;
+    color: white;
+    flex-direction: column;
+
+}
+
+.icons {
+    margin: 12px 0;
+}
+
+.icons i {
+    padding: 0 6px;
+    cursor: pointer;
+}
+
+#myProgressBar {
+    width: 75vw;
+    cursor: pointer;
+}
+
+.songItem {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    color: black;
+    margin: 12px 0;
+    height: 50px;
+    width: 70%;
+    align-items: center;
+    border-radius: 34px;
+}
+
+.songItem img {
+    width: 43px;
+    margin: 0 12px;
+    border-radius: 34px;
+}
+
+.timestamp {
+    margin: 0 23px;
+}
+
+.timestamp i {
+    cursor: pointer;
+    margin: 0 6px;
+}
+
+.songInfo {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 13vw;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.songInfo span {
+    color: aqua;
+
+}
+
+.songInfo img {
+    margin-top: 10px;
+    margin-right: 10px;
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) translateZ(0);
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    }
+
+    50% {
+        transform: scale(1.05) translateZ(10px);
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    }
+
+    100% {
+        transform: scale(1) translateZ(0);
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    }
+}
+
+.songInfo span {
+    animation: pulse 3s infinite ease-in-out;
+    display: inline-block;
+}
+
+@keyframes float {
+    0% {
+      transform: translateY(0px) rotateX(0deg);
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+      transform: translateY(-6px) rotateX(5deg);
+      box-shadow: 0 15px 20px 0px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      transform: translateY(0px) rotateX(0deg);
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+.songItem {
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.songItem:hover {
+    transform: translateY(-5px) scale(1.02) rotateX(5deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.songItem.playing {
+    animation: float 3s ease-in-out infinite;
+    border-left: 4px solid #1DB954;
+    /* Spotify green */
+    background: linear-gradient(to right, rgba(29, 185, 84, 0.1), white);
+}
+
+.icons i {
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.icons i:hover {
+    transform: scale(1.2) translateY(-5px) rotateY(15deg);
+    color: #1DB954;
+    /* Spotify green */
+    text-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+}
+
+.fa-pause-circle {
+    transform: scale(0.95) translateZ(-5px);
+    color: #1DB954 !important;
+}
+
+/* Styles for the range input */
+#myProgressBar {
+    -webkit-appearance: none;
+    /* Remove default styling */
+    width: 100%;
+    /* Full width */
+    height: 8px;
+    /* Height of the track */
+    border-radius: 4px;
+    /* Rounded corners */
+    background: linear-gradient(to right, #333, #222);
+    /* Background gradient */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    /* Inner shadow */
+    transition: all 0.3s ease;
+    /* Smooth transition */
+}
+
+/* Styles for the thumb in WebKit browsers */
+#myProgressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Remove default styling */
+    width: 18px;
+    /* Width of the thumb */
+    height: 18px;
+    /* Height of the thumb */
+    border-radius: 50%;
+    /* Circular thumb */
+    background: #1DB954;
+    /* Thumb color */
+    box-shadow: 0 0 10px rgba(29, 185, 84, 0.7);
+    /* Shadow around thumb */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: all 0.3s ease;
+    /* Smooth transition */
+    transform: scale(1);
+    /* Initial scale */
+}
+
+/* Styles for the thumb on hover in WebKit browsers */
+#myProgressBar::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    /* Scale up on hover */
+    box-shadow: 0 0 15px rgba(29, 185, 84, 0.9);
+    /* Shadow on hover */
+}
+
+
+.container {
+    box-shadow: 0 12px 15px rgba(0, 0, 0, 0.6);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.3s ease;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container:hover {
+    transform: rotateX(2deg) rotateY(-1deg);
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+
+nav ul {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 100;
+    background: linear-gradient(to bottom, #111, #000);
+}   
+
+.songItem.playing {
+    background-color: #e6ffe6;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #00ff99;
+}
