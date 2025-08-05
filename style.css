@@ -250,55 +250,111 @@ nav ul li {
   nav ul {
     flex-direction: column;
     height: auto;
+    text-align: center;
     padding: 10px 0;
   }
 
   nav ul li {
-    padding: 10px 0;
-    text-align: center;
+    padding: 8px 0;
+    font-size: 16px;
   }
 
   .container {
     flex-direction: column;
-    width: 90%;
+    width: 95%;
+    margin: 12px auto;
     padding: 20px 10px;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
   }
 
   .songItem {
-    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     padding: 10px;
-  }
-
-  .songItem img {
-    width: 50px;
+    font-size: 14px;
+    background-color: rgba(255,255,255,0.1); /* Optional subtle background */
+    border-radius: 10px;
     margin-bottom: 10px;
   }
 
-  .timestamp {
-    font-size: 0.9rem;
-    margin: 6px 0;
+  .songItem img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    border-radius: 50%;
   }
 
   .songName {
-    text-align: center;
+    flex-grow: 1;
+    font-size: 14px;
   }
 
-  .brand {
+  .timestamp {
+    font-size: 12px;
+    white-space: nowrap;
+    margin-left: 10px;
+  }
+
+  .songlistplay {
+    margin-left: 10px;
+  }
+
+  .bottom {
     flex-direction: column;
-    text-align: center;
+    padding: 15px 10px;
+    position: static;
+    width: 100%;
   }
 
-  .brand img {
-    margin-bottom: 6px;
-    width: 50px;
+  .icons i {
+    font-size: 22px;
+    padding: 10px;
   }
 
   .songInfo {
     position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .songInfo img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+  }
+
+  #myProgressBar {
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .brand {
+    font-size: 1.3rem;
     justify-content: center;
   }
+
+  .brand img {
+    width: 40px;
+  }
+
+  #bgCanvas {
+    display: none;
+  }
 }
+
 
 @media (max-width: 400px) {
   .icons i {
